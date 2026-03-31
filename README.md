@@ -41,15 +41,18 @@ git clone [https://github.com/AndyRONG/DARE.git](https://github.com/AndyRONG/DAR
 cd DARE
 
 ## Install dependencies
+```
 pip install -r requirements.txt
 
 
 Quick Start
-
+```
 ## Example snippet (Placeholder)
+```
 from dare import DAREModel
 
 model = DAREModel(backbone='resnet50', num_classes=10)
+```
 ## Training and inference scripts will be available soon.
 
 
@@ -65,7 +68,7 @@ Primary Maintainer: AndyRONG
 
 Affiliation: Department of Mathematics
 
-Email: rzj@stu.cou.edu.cn
+Email: rzj@stu.ouc.edu.cn
 
 GitHub Issues: For technical questions, please open an issue.
 
