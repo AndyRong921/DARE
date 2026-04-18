@@ -1,10 +1,36 @@
 # DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification
 
-![Framework](./framework.png)
-
 This is the official implementation of the paper: "DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification". We propose DARE, a dual-space framework for robust tissue classification. It integrates two data augmentation strategies within an advanced lightweight deep broad learning system for targeted domain adaptation.
 
-## ✨ Highlights
+## Framework Overview
+![Framework](./framework.png)
+
+
+
+
+## Abstract
+
+Deep learning (DL) has achieved remarkable progress in medical image analysis. However, its
+success critically depends on large-scale, expert-annotated datasets, which are costly and impractical
+to obtain in clinical practice. This limitation is further aggravated by the inherent heterogeneity
+of medical imaging across institutions, making it even more challenging to curate reliable and
+consistent datasets. Therefore, DL models trained on a single dataset often exhibit limited generalizability and poor transferability especially under the limited training data scenario. To address
+these challenges in the Histopathological Tissue classification task, we propose a novel framework
+named Domain-Augmentation via Representative Enrichment (DARE), which integrates two data
+augmentation strategies within an advanced lightweight deep broad learning system for targeted
+domain adaptation. First, we analyze the source-domain dataset in the feature space and argue that,
+a single global statistic is insufficient to fully characterize the source-domain distribution under
+limited training data scenario. Therefore, we introduce DARE†, a pseudo-domain partition-based
+feature-space augmentation strategy. By partitioning the limited source-domain data into multiple
+pseudo-domains via the thought of sampling, DARE† extracts diverse statistical representations
+that enrich domain variability and thereby improve generalization to the target domain. Second,
+recognizing that the original image space fundamentally shapes the feature space, we further design
+DARE*, an image-level augmentation scheme. DARE* directly increases the diversity of source-domain images, complementing the feature-space augmentation and further enhancing the model’s
+robustness to domain shift. Extensive experiments demonstrate that our proposed methods achieve
+consistent performance improvements on target domains under extremely limited source-domain
+training scenarios.
+
+## Highlights
 
 - A DARE includes two separate methods is proposed for robust tissue classification.
 - DARE† is a pseudo-domain partition strategy to enrich feature-space variability.
@@ -12,7 +38,7 @@ This is the official implementation of the paper: "DARE: Domain-Aware Representa
 - A training-free strategy ensures stable optimization in small-sample regimes.
 - Significant gains are achieved on multi-center data using only 1% labeled samples
 
-## 🏗 Project Structure
+## Project Structure
 
 The repository is organized as follows:
 ```
@@ -36,7 +62,7 @@ The repository is organized as follows:
 └── README.md
 ```
 
-## 📊 Datasets
+## Datasets
 
 We evaluate DARE using subsets of the Kather Multiclass Dataset.
 
@@ -46,7 +72,7 @@ We evaluate DARE using subsets of the Kather Multiclass Dataset.
 
 Please download the datasets from [Zenodo](https://zenodo.org/record/1214456) or the official [Kather Laboratory](https://jnkather.github.io/) website. Organize them into the dataset/ folder. Note that the 'Background' (BACK) class is removed for consistent 8-class classification.
 
-## 🛠 Installation
+## Installation
 
 1. Clone the repository:
 ```
@@ -60,7 +86,7 @@ cd DARE
 pip install -r requirements.txt
 ```
 
-## 💻 Usage
+## Usage
 
 The DARE framework follows a two-step workflow: first extracting source features to initialize the model, then performing domain adaptation on the target set.
 
@@ -95,7 +121,7 @@ python export_weights.py
 ```
 
 
-## 📖 Methodology
+## Methodology
 
 - **Multi-Scale Backbone:** Uses a pyramidal topology to capture hierarchical morphology across different image resolutions (224, 160, 112).
 
@@ -107,11 +133,11 @@ python export_weights.py
 
 - **Inference-time Voting:** Aggregates predictions across multiple stochastic realizations ($K=8$) to ensure decision stability.
 
-## 🙏 Acknowledgment
+## Acknowledgment
 
 The PDBL classifier implementation in this project is based on the original work by Lin et al.: [PDBL: Improving Histopathological Tissue Classification with Plug-and-Play Pyramidal Deep-Broad Learning](https://github.com/linjiatai/PDBL)
 
-## 📝 Citation
+## Citation
 
 If you find this research useful, please cite our paper:
 ```
