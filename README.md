@@ -114,15 +114,13 @@ dataset/
 │   │   └── ...
 │   ├── DEB/
 │   ├── LYM/
-│   └── ... (Total 8 classes)
+│   └── ... (Total 9 classes)
 └── Kather001/ (Target Domain)
     ├── ADI/
     ├── DEB/
-    └── ... (Same 8 classes)
+    └── ... (Same 9 classes)
 
 ```
-**Note:** The BACK (Background) class has been removed to ensure a consistent 8-class classification task across both domains.
-
 
 ## Installation
 
