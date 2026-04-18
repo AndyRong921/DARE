@@ -1,75 +1,101 @@
-# DARE: Domain-Aware Representation Enhancement
+# DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification
 
-## 🚧 Notice: Repository Under Refactoring
 
-Thank you for visiting! This repository is currently undergoing a major cleanup to ensure code quality, modularity, and full reproducibility of the results presented in our research. The full source code, pre-trained weights, and documentation will be released shortly.
+This is the official implementation of the paper: "DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification".
 
-## 🔬 Overview
+We propose DARE, a dual-space framework for robust tissue classification. It integrates two data augmentation strategies within an advanced lightweight deep broad learning system for targeted domain adaptation.
 
-DARE (Domain-Aware Representation Enhancement) is a specialized framework designed for data-efficient medical image classification. In clinical scenarios where labeled data is scarce or expensive to obtain, DARE enhances the learned representations by explicitly modeling domain-specific features.
+## ✨ Highlights
 
-### Key Contributions:
+DARE† (Feature-space): A pseudo-domain partition strategy that enriches feature-space variability.
 
-Domain-Aware Enhancement: A novel mechanism to capture and utilize domain-specific characteristics for better feature discrimination.
+DARE* (Image-space): An image-level scheme to enhance robustness via input-space diversity.
 
-Data-Efficient Learning: Optimized architecture that achieves competitive performance even with limited training samples.
+Training-free: Ensures stable optimization in small-sample regimes without iterative backpropagation for the classifier.
 
-Versatility: Designed as a plug-and-play module compatible with various backbone networks (e.g., ResNet, ViT, Swin Transformer).
+Data-Efficient: Achieves significant gains on multi-center data using only 1% labeled samples.
 
-## 🛠 Project Roadmap
+## 🏗 Project Structure
+```
+The repository is organized as follows:
 
-We are currently working on the following tasks before the official 1.0 release:
+├── dataset/             # (Placeholder) Create this folder for your data
+├── save/                # Output directory for weights and PCA models
+├── tool/                # Core logic & utilities
+│   ├── PDBL.py          # PDBL classifier implementation
+│   ├── dataset.py       # Data loading utilities
+│   ├── utils.py         # Helper functions
+│   └── ...              # Other backbone definitions (resnet, shufflenet, etc.)
+├── main.py              # Main script for DARE ablation study
+├── pdbl_swin_tiny_model.py # Swin-Tiny triple-branch model definition
+├── export_weights.py    # Weight compression and export script
+├── requirements.txt     # Dependencies
+└── README.md
+```
 
-[x] Core Logic: Finalize the DARE architecture and loss functions.
+## 📊 Datasets
 
-[x] Benchmarking: Complete evaluation on multiple medical imaging datasets.
+We evaluate DARE using subsets of the Kather Multiclass Dataset.
 
-[ ] Code Refactoring: Decoupling modules and improving code readability (Current Focus).
+Source Domain (KME): Kather Multiclass External subset.
 
-[ ] Tutorials: Providing Jupyter Notebooks for easy-to-follow demonstrations.
+Target Domain (Kather001): Kather001 subset.
 
-[ ] Model Zoo: Uploading pre-trained weights for public use.
+Please download the datasets from Zenodo or the official Kather Laboratory website. Organize them into the dataset/ folder. Note that the 'Background' (BACK) class is removed for consistent 8-class classification.
 
-## 🚀 Getting Started (Coming Soon)
+## 🛠 Installation
 
-Once the preparation is complete, you will be able to install the requirements and run the project as follows:
-
-Installation
-
-## Clone the repository
-git clone [https://github.com/AndyRONG/DARE.git](https://github.com/AndyRONG/DARE.git)
+Clone the repository:
+```
+git clone [https://github.com/YourUsername/DARE.git](https://github.com/YourUsername/DARE.git)
 cd DARE
+```
 
-## Install dependencies
+Install dependencies:
 ```
 pip install -r requirements.txt
-
-
-Quick Start
 ```
-## Example snippet (Placeholder)
-```
-from dare import DAREModel
 
-model = DAREModel(backbone='resnet50', num_classes=10)
-```
-## Training and inference scripts will be available soon.
+## 💻 Usage
 
+1. Running DARE Ablation Study
+
+The main.py script executes the ablation study comparing Baseline, DARE*, DARE†, and Voting strategies as described in the paper:
+
+python main.py --backbone swin --source_dir dataset/KME --target_dir dataset/Kather --n_clients 4
+
+
+2. Exporting and Compressing Weights
+
+To perform PCA-based compression on trained weights:
+
+python export_weights.py
+
+
+## 📖 Methodology
+
+Multi-Scale Backbone: Uses a pyramidal topology to capture hierarchical morphology across different image resolutions (224, 160, 112).
+
+DARE Mechanism:
+
+DARE*: Applies stochastic normalization using a pool of statistics sampled from the source domain to simulate domain shifts.
+
+DARE†: Partitions the source data into pseudo-domains via K-means clustering to perform cross-domain interpolation.
+
+Inference-time Voting: Aggregates predictions across multiple stochastic realizations ($K=8$) to ensure decision stability.
+
+## 🙏 Acknowledgment
+
+The PDBL classifier implementation in this project is based on the original work by Lin et al.: PDBL: Improving Histopathological Tissue Classification with Plug-and-Play Pyramidal Deep-Broad Learning.
 
 ## 📝 Citation
 
-If you find this work useful for your research, please consider citing our paper. The official citation bibtex will be provided here once the paper is published.
-
-## ✉️ Contact
-
-For early access to specific modules or potential collaborations, please feel free to reach out:
-
-Primary Maintainer: AndyRONG
-
-Affiliation: Department of Mathematics
-
-Email: rzj@stu.ouc.edu.cn
-
-GitHub Issues: For technical questions, please open an issue.
-
-Thank you for your patience and interest in DARE! ☕
+If you find this research useful, please cite our paper:
+```
+@article{rong2026dare,
+  title={DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification},
+  author={Rong, Zhijin and Zeng, Xueying and Zhang, Jingliang and Zhang, Qing},
+  journal={Biomedical Signal Processing and Control},
+  year={2026}
+}
+```
