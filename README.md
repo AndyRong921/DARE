@@ -42,7 +42,7 @@ We evaluate DARE using subsets of the Kather Multiclass Dataset.
 
 - **Target Domain (Kather001):** Kather001 subset.
 
-Please download the datasets from Zenodo or the official Kather Laboratory website. Organize them into the dataset/ folder. Note that the 'Background' (BACK) class is removed for consistent 8-class classification.
+Please download the datasets from [Zenodo](https://zenodo.org/record/1214456) or the official [Kather Laboratory](https://jnkather.github.io/) website. Organize them into the dataset/ folder. Note that the 'Background' (BACK) class is removed for consistent 8-class classification.
 
 ## 🛠 Installation
 
