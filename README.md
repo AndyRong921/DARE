@@ -58,6 +58,7 @@ The repository is organized as follows:
 ├── pdbl_resnet50_model.py # Resnet triple-branch model definition
 ├── pdbl_eff_model.py # Effnet triple-branch model definition
 ├── export_weights.py    # Weight compression and export script
+├── requirements.txt     # Dependencies
 └── README.md
 ```
 
