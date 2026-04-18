@@ -29,6 +29,8 @@ The repository is organized as follows:
 ├── main.py              # Main script for DARE ablation study
 ├── pdbl_swin_tiny_model.py # Swin-Tiny triple-branch model definition
 ├── pdbl_shufflenet_model.py # Shufflenet triple-branch model definition
+├── pdbl_resnet50_model.py # Resnet triple-branch model definition
+├── pdbl_eff_model.py # Effnet triple-branch model definition
 ├── export_weights.py    # Weight compression and export script
 ├── requirements.txt     # Dependencies
 └── README.md
