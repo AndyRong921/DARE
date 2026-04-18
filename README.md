@@ -58,9 +58,39 @@ The repository is organized as follows:
 ├── pdbl_resnet50_model.py # Resnet triple-branch model definition
 ├── pdbl_eff_model.py # Effnet triple-branch model definition
 ├── export_weights.py    # Weight compression and export script
-├── requirements.txt     # Dependencies
 └── README.md
 ```
+
+## Environment
+
+Ensure you have Python 3.8+ installed. We recommend using a virtual environment.
+```
+
+OS: Linux, Windows, or macOS
+
+Python: 3.8 or higher
+
+Core Libraries:
+
+torch >= 2.0.0
+
+torchvision
+
+timm
+
+scikit-learn
+
+joblib
+
+tqdm
+
+Pillow
+
+Install all dependencies via:
+
+pip install -r requirements.txt
+```
+
 
 ## Datasets
 
@@ -71,6 +101,27 @@ We evaluate DARE using subsets of the Kather Multiclass Dataset.
 - **Target Domain (Kather001):** Kather001 subset.
 
 Please download the datasets from [Zenodo](https://zenodo.org/record/1214456) or the official [Kather Laboratory](https://jnkather.github.io/) website. Organize them into the dataset/ folder. Note that the 'Background' (BACK) class is removed for consistent 8-class classification.
+
+## Data Format
+
+The project expects images to be organized in the standard ImageFolder format.
+```
+dataset/
+├── KME/ (Source Domain)
+│   ├── ADI/
+│   │   ├── img1.png
+│   │   └── ...
+│   ├── DEB/
+│   ├── LYM/
+│   └── ... (Total 8 classes)
+└── Kather001/ (Target Domain)
+    ├── ADI/
+    ├── DEB/
+    └── ... (Same 8 classes)
+
+```
+**Note:** The BACK (Background) class has been removed to ensure a consistent 8-class classification task across both domains.
+
 
 ## Installation
 
