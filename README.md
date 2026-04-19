@@ -1,4 +1,10 @@
 # DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification
+![OS](https://img.shields.io/badge/OS-Linux%2C%20Windows%2C%20macOS-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0.0+-orange)
+![arXiv](https://img.shields.io/badge/arXiv-none-red)
+![GitHub stars](https://img.shields.io/github/stars/AndyRong921/DARE?style=social)
+![GitHub forks](https://img.shields.io/github/forks/AndyRong921/DARE?style=social)
 
 This is the official implementation of the paper: "DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification". We propose DARE, a two-separated-methods framework for robust tissue classification. It integrates two data augmentation strategies within an advanced lightweight deep broad learning system for targeted domain adaptation.
 
