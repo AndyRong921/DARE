@@ -16,7 +16,7 @@ This is the official implementation of the paper: "DARE: Domain-Aware Representa
 
 ## Abstract
 
-![abstract](./dare-abstract.png)
+![Abstract](./abstract.png)
 
 ## Highlights
 
