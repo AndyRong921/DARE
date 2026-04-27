@@ -16,25 +16,7 @@ This is the official implementation of the paper: "DARE: Domain-Aware Representa
 
 ## Abstract
 
-Deep learning (DL) has achieved remarkable progress in medical image analysis. However, its
-success critically depends on large-scale, expert-annotated datasets, which are costly and impractical
-to obtain in clinical practice. This limitation is further aggravated by the inherent heterogeneity
-of medical imaging across institutions, making it even more challenging to curate reliable and
-consistent datasets. Therefore, DL models trained on a single dataset often exhibit limited generalizability and poor transferability especially under the limited training data scenario. To address
-these challenges in the Histopathological Tissue classification task, we propose a novel framework
-named Domain-Augmentation via Representative Enrichment (DARE), which integrates two data
-augmentation strategies within an advanced lightweight deep broad learning system for targeted
-domain adaptation. First, we analyze the source-domain dataset in the feature space and argue that,
-a single global statistic is insufficient to fully characterize the source-domain distribution under
-limited training data scenario. Therefore, we introduce DARE†, a pseudo-domain partition-based
-feature-space augmentation strategy. By partitioning the limited source-domain data into multiple
-pseudo-domains via the thought of sampling, DARE† extracts diverse statistical representations
-that enrich domain variability and thereby improve generalization to the target domain. Second,
-recognizing that the original image space fundamentally shapes the feature space, we further design
-DARE*, an image-level augmentation scheme. DARE* directly increases the diversity of source-domain images, complementing the feature-space augmentation and further enhancing the model’s
-robustness to domain shift. Extensive experiments demonstrate that our proposed methods achieve
-consistent performance improvements on target domains under extremely limited source-domain
-training scenarios.
+![abstract](./dare-abstract.png)
 
 ## Highlights
 
