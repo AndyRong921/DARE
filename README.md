@@ -18,6 +18,8 @@ This is the official implementation of the paper: "DARE: Domain-Aware Representa
 
 ![Abstract](./abstract.png)
 
+Note: This graphical abstract was generated with the assistance of AI for illustrative purposes, to provide an intuitive overview of the core methodology. It is not included in the formal manuscript.
+
 ## Highlights
 
 - A DARE includes two separate methods is proposed for robust tissue classification.
