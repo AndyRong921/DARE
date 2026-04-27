@@ -8,17 +8,15 @@
 
 This is the official implementation of the paper: "DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification". We propose DARE, a two-separated-methods framework for robust tissue classification. It integrates two data augmentation strategies within an advanced lightweight deep broad learning system for targeted domain adaptation.
 
-## Framework Overview
-![Framework](./framework.png)
-
-
-
-
 ## Abstract
 
 ![Abstract](./abstract.png)
 
 Note: This graphical abstract was generated with the assistance of AI for illustrative purposes, to provide an intuitive overview of the core methodology. It is not included in the formal manuscript.
+
+
+## Framework Overview
+![Framework](./framework.png)
 
 ## Highlights
 
