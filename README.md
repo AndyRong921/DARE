@@ -6,6 +6,12 @@
 ![GitHub stars](https://img.shields.io/github/stars/AndyRong921/DARE?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/AndyRong921/DARE?style=social)
 
+
+> ⚠️ **Status: Revision in Progress**  
+> The `main` branch is currently undergoing a major revision/refactor. The next release is expected in **Sept. 2026**.  
+
+---
+
 This is the official implementation of the paper: "DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification". We propose DARE, a two-separated-methods framework for robust tissue classification. It integrates two data augmentation strategies within an advanced lightweight deep broad learning system for targeted domain adaptation.
 
 ## Abstract
