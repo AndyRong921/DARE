@@ -2,7 +2,7 @@
 ![OS](https://img.shields.io/badge/OS-Linux%2C%20Windows%2C%20macOS-blue)
 ![Python](https://img.shields.io/badge/Python-3.8+-green)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0.0+-orange)
-![arXiv](https://img.shields.io/badge/arXiv-none-red)
+![BSPC](https://img.shields.io/badge/BSPC-Accepted-brightgreen)
 ![GitHub stars](https://img.shields.io/github/stars/AndyRong921/DARE?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/AndyRong921/DARE?style=social)
 
@@ -13,13 +13,6 @@
 ---
 
 This is the official implementation of the paper: "DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification". We propose DARE, a two-separated-methods framework for robust tissue classification. It integrates two data augmentation strategies within an advanced lightweight deep broad learning system for targeted domain adaptation.
-
-## Abstract
-
-![Abstract](./abstract.png)
-
-Note: This graphical abstract was generated with the assistance of AI for illustrative purposes, to provide an intuitive overview of the core methodology. It is not included in the formal manuscript.
-
 
 ## Framework Overview
 ![Framework](./framework.png)
@@ -52,6 +45,8 @@ The repository is organized as follows:
 ├── pdbl_resnet50_model.py # Resnet triple-branch model definition
 ├── pdbl_eff_model.py # Effnet triple-branch model definition
 ├── export_weights.py    # Weight compression and export script
+├── compare_baselines.py # Comparison against mainstream methods (e.g., Mixup, ...)
+├── time_statistics.py   # Runtime / latency statistics
 ├── requirements.txt     # Dependencies
 └── README.md
 ```
@@ -108,11 +103,11 @@ dataset/
 │   │   └── ...
 │   ├── DEB/
 │   ├── LYM/
-│   └── ... (Total 9 classes)
+│   └── ... (Total 8 classes)
 └── Kather001/ (Target Domain)
     ├── ADI/
     ├── DEB/
-    └── ... (Same 9 classes)
+    └── ... (Same 8 classes)
 
 ```
 
@@ -138,24 +133,11 @@ The DARE framework follows a two-step workflow: first extracting source features
 
 Use the model-specific script (e.g., pdbl_swin_tiny_model.py) to extract multi-scale features from the source domain, fit the PCA reduction model, and train the initial PDBL classifier.
 
-### Example for Swin-Tiny backbone
-```
-python pdbl_swin_tiny_model.py --source_dir dataset/KME --save_dir save --n_class 8
-```
-
-This step will generate the following artifacts in the save/ directory:
-
-```PCA_swin.pkl: ```The trained PCA dimensionality reduction model.
-
-```PDBL_swin.npy:``` The analytical weights for the PDBL classifier.
 
 **Step 2: Running DARE Ablation & Evaluation**
 
-After obtaining the source domain statistics and weights, run the main ablation script to evaluate DARE*, DARE†, and Voting strategies on the target domain.
-```
-# Run ablation study on target domain
-python main.py --backbone swin --source_dir dataset/KME --target_dir dataset/Kather001 --n_clients 4
-```
+After obtaining the source-domain statistics and weights, run the main ablation script to evaluate the **DARE\***, **DARE†**, **DARE-Combined** and **Voting** strategies on the target domain. Also，you can compare DARE against mainstream domain adaptation / regularization methods (e.g., Mixup) by use "compare_baselines.py" and measure the runtime / latency of DARE and the compared baselines by use "time_statistics.py"
+
 
 **Optional: Weight Compression**
 
@@ -175,7 +157,10 @@ python export_weights.py
 
   (ii) DARE†: Partitions the source data into pseudo-domains via K-means clustering to perform cross-domain interpolation.
 
-- **Inference-time Voting:** Aggregates predictions across multiple stochastic realizations ($K=8$) to ensure decision stability.
+  (iii) DARE-Combined: Combines DARE\* and DARE†, jointly leveraging stochastic normalization and pseudo-domain interpolation.
+
+
+- **Inference-time Voting:** Aggregates predictions across multiple stochastic realizations to ensure decision stability.
 
 ## Acknowledgment
 
@@ -186,9 +171,10 @@ The PDBL classifier implementation in this project is based on the original work
 If you find this research useful, please cite our paper:
 ```
 @article{rong2026dare,
-  title={DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification},
-  author={Rong, Zhijin and Zeng, Xueying and Zhang, Jingliang and Zhang, Qing},
-  year={2026},
-  note={Under review}
+  title   = {DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification},
+  author  = {Rong, Zhijin and Zeng, Xueying and Zhang, Jingliang and Zhang, Qing},
+  journal = {Biomedical Signal Processing and Control},
+  year    = {2026},
+  note    = {Accepted}
 }
 ```
