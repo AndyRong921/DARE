@@ -10,6 +10,8 @@
 > **Note:** The relevant code is currently being organized and will be released as soon as possible.
 ---
 
+> 🎉 **Good news! Our paper _DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification_ has been accepted by *Biomedical Signal Processing and Control* (BSPC).**
+
 This is the official implementation of the paper: "DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification". We propose DARE, a two-separated-methods framework for robust tissue classification. It integrates two data augmentation strategies within an advanced lightweight deep broad learning system for targeted domain adaptation.
 
 ## Framework Overview
