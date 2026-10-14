@@ -132,12 +132,12 @@ The DARE framework follows a two-step workflow: first extracting source features
 
 **Step 1: Feature Extraction & Model Initialization**
 
-Use the model-specific script (e.g., pdbl_swin_tiny_model.py) to extract multi-scale features from the source domain, fit the PCA reduction model, and train the initial PDBL classifier.
+Use the model-specific script (e.g., ```pdbl_swin_tiny_model.py```) to extract multi-scale features from the source domain, fit the PCA reduction model, and train the initial PDBL classifier.
 
 
 **Step 2: Running DARE Ablation & Evaluation**
 
-After obtaining the source-domain statistics and weights, run the main ablation script to evaluate the **DARE\***, **DARE†**, **DARE-Combined** and **Voting** strategies on the target domain. Also，you can compare DARE against mainstream domain adaptation / regularization methods (e.g., Mixup) by use "compare_baselines.py" and measure the runtime / latency of DARE and the compared baselines by use "time_statistics.py"
+After obtaining the source-domain statistics and weights, run the main ablation script to evaluate the **DARE\***, **DARE†**, **DARE-Combined** and **Voting** strategies on the target domain. Also，you can compare DARE against mainstream domain adaptation / regularization methods (e.g., Mixup) by use ```compare_baselines.py``` and measure the runtime / latency of DARE and the compared baselines by use ```time_statistics.py```
 
 
 **Optional: Weight Compression**
