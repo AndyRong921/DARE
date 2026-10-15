@@ -8,6 +8,8 @@
 
 
 > **Note:** The relevant code is currently being organized and will be released as soon as possible.
+
+> **Note:** If you have any questions, please ask them in the corresponding topic in [Issues](https://github.com/your-username/your-repo-name/issues).
 ---
 
 > 🎉 **Good news! Our paper _DARE: Domain-Aware Representation Enhancement for Data-Efficient Histopathological Tissue Classification_ has been accepted by *Biomedical Signal Processing and Control* (BSPC).**
